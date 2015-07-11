@@ -37,7 +37,6 @@ public class H2Connector {
         try {
             connection.setAutoCommit(false);
             stmt = connection.createStatement();
-            System.out.println(checkEmployee(employee.getEmployeeId()));
 
             String query = "INSERT INTO EMPLOYEE(id, fname, lname, salary, status)" +
                     " VALUES (" + employee.getEmployeeId() + "," +
