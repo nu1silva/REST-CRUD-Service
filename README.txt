@@ -29,6 +29,15 @@ NOTE: includes a in-memory H2 db so please be aware of memmory usage
 
 Usage:
 -----
+The accepted json format is as follows;
+{
+  "employeeId": 1,
+  "firstName": "Nuwan",
+  "lastName": "Silva",
+  "salary": 100000.0,
+  "status": "ACTIVE"
+}
+
 Create User:
 curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"employeeId":1,"firstName":"Nuwan","lastName":"Silva","salary":100000.0,"status":"ACTIVE"}' http://localhost:8080/RESTservice/user/add
 

@@ -1,1 +1,7 @@
-{"employeeId":2,"firstName":"Andy","lastName":"Perera","salary":133000.0,"status":"SUSPENDED"}
+{
+  "employeeId": 2,
+  "firstName": "Andy",
+  "lastName": "Perera",
+  "salary": 133000.0,
+  "status": "SUSPENDED"
+}
