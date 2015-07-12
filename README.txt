@@ -27,6 +27,21 @@ Includes CRUD operations with GET,POST,PUT,DELETE
 NOTE: includes a in-memory H2 db so please be aware of memmory usage
 
 
+Usage:
+-----
+Create User:
+curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"employeeId":1,"firstName":"Nuwan","lastName":"Silva","salary":100000.0,"status":"ACTIVE"}' http://localhost:8080/RESTservice/user/add
+
+View created user:
+curl -X GET -H 'Content-Type:application/json' -H 'Accept:application/json' http://localhost:8080/RESTservice/user/search/1
+
+Update user:
+curl -X PUT -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"employeeId":1,"status":"BLOCKED"}' http://localhost:8080/RESTservice/user/update
+
+Delete user:
+curl -X DELETE -H 'Content-Type:application/json' -H 'Accept:application/json' http://localhost:8080/RESTservice/user/delete/1
+
+
 Testing scripts:
 ---------------
 available @ [PROJECT_HOME]/scripts
