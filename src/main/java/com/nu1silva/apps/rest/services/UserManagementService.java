@@ -33,6 +33,13 @@ public class UserManagementService {
 
     H2Connector h2Connector = new H2Connector();
 
+    /**
+     * Get User details to the service
+     *
+     * @param userId
+     * @return Response
+     * @throws SQLException
+     */
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Path("/search/{userId}")
@@ -41,7 +48,14 @@ public class UserManagementService {
         return Response.status(200).entity(h2Connector.getEmployee(userId)).build();
     }
 
-    // {"employeeId":1,"firstName":"Nuwan","lastName":"Silva","salary":100000.0,"status":"ACTIVE"}
+
+    /**
+     * Add user details to the service
+     *
+     * @param employee {"employeeId":1,"firstName":"Nuwan","lastName":"Silva","salary":100000.0,"status":"ACTIVE"}
+     * @return Response
+     * @throws SQLException
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/add")
@@ -58,6 +72,13 @@ public class UserManagementService {
         return Response.status(201).entity(output).build();
     }
 
+    /**
+     * Update user details in the service
+     *
+     * @param employee
+     * @return Response
+     * @throws SQLException
+     */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/update")
@@ -71,6 +92,13 @@ public class UserManagementService {
         return Response.status(200).entity(output).build();
     }
 
+    /**
+     * Delete a user and details from the service
+     *
+     * @param userId
+     * @return Response
+     * @throws SQLException
+     */
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/delete/{userId}")

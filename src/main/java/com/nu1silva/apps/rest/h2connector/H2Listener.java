@@ -26,6 +26,11 @@ public class H2Listener implements javax.servlet.ServletContextListener {
 
     H2Connector h2 = new H2Connector();
 
+    /**
+     * Initilize the H2 Database at startup
+     *
+     * @param servletContextEvent
+     */
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         try {

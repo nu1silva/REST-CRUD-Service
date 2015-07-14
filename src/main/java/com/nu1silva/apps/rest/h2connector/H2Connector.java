@@ -30,7 +30,13 @@ public class H2Connector {
     private static final String DB_USER = "";
     private static final String DB_PASSWORD = "";
 
-    // Add Employee
+    /**
+     * Insert Employee Details
+     *
+     * @param employee
+     * @return Boolean
+     * @throws SQLException
+     */
     public Boolean addEmployee(Employees employee) throws SQLException {
         Connection connection = getDBConnection();
         Statement stmt = null;
@@ -60,7 +66,13 @@ public class H2Connector {
         }
     }
 
-    // Check Employee available
+    /**
+     * Check Employee availability
+     *
+     * @param employeeId
+     * @return Boolean
+     * @throws SQLException
+     */
     private Boolean checkEmployee(int employeeId) throws SQLException {
         Connection connection = getDBConnection();
         try {
@@ -83,7 +95,13 @@ public class H2Connector {
         }
     }
 
-    // Get Employee
+    /**
+     * Get Employee Details
+     *
+     * @param empId
+     * @return Employee
+     * @throws SQLException
+     */
     public Employees getEmployee(int empId) throws SQLException {
         Connection connection = getDBConnection();
         try {
@@ -114,7 +132,13 @@ public class H2Connector {
         }
     }
 
-    // Update Employee
+    /**
+     * Update Employee details
+     *
+     * @param employee
+     * @return Boolean
+     * @throws SQLException
+     */
     public Boolean updateEmployee(Employees employee) throws SQLException {
         Connection connection = getDBConnection();
         Statement stmt = null;
@@ -144,7 +168,13 @@ public class H2Connector {
         }
     }
 
-    // Delete Employee
+    /**
+     * Delete Employee Details
+     *
+     * @param employeeId
+     * @return Boolean
+     * @throws SQLException
+     */
     public Boolean deleteEmployee(int employeeId) throws SQLException {
         Connection connection = getDBConnection();
         Statement stmt = null;
@@ -169,6 +199,11 @@ public class H2Connector {
         }
     }
 
+    /**
+     * Create Employee database
+     *
+     * @throws SQLException
+     */
     public void createTable() throws SQLException {
         Connection connection = getDBConnection();
         Statement stmt = null;
@@ -187,7 +222,11 @@ public class H2Connector {
         }
     }
 
-    // This method will probably go unused.
+    /**
+     * Drop Database (This method will probably go unused)
+     *
+     * @throws SQLException
+     */
     public void dropTable() throws SQLException {
         Connection connection = getDBConnection();
         Statement stmt = null;
@@ -207,7 +246,11 @@ public class H2Connector {
     }
 
 
-    // Create Database Connection
+    /**
+     * Create Database Connection
+     *
+     * @return dbConnection
+     */
     public Connection getDBConnection() {
         Connection dbConnection = null;
         try {
