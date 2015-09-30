@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#while [ TRUE ]; do
+
 echo "Create Users..."
 curl -X POST -H "Content-Type:application/json" -H "Accept:application/json" -d @create1.json http://localhost:8080/RESTservice/user/add
 echo ""
@@ -47,4 +49,4 @@ curl -X GET -H "Content-Type:application/json" -H "Accept:application/json" http
 echo ""
 curl -X GET -H "Content-Type:application/json" -H "Accept:application/json" http://localhost:8080/RESTservice/user/search/3
 echo ""
-
+#done
