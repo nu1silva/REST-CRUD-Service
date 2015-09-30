@@ -10,7 +10,7 @@ You can build the project to generate a war file or start a standalone server th
 > Build the project
 	mvn clean package
 
- This will create a war file inside [project_home]/target put the artifact in tomcat or a WSO2 AS
+ This will create a war file inside [project_home]/target put the artifact in tomcat
 
 > Standlaone Instance
 	mvn clean jetty:run
