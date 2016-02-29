@@ -105,22 +105,27 @@ public class H2Connector {
     public Employees getEmployee(int empId) throws SQLException {
         Connection connection = getDBConnection();
         try {
-            connection.setAutoCommit(false);
-            PreparedStatement statement = connection.prepareStatement("select * from EMPLOYEE where id = " + empId);
-            ResultSet set = statement.executeQuery();
+            if (checkEmployee(empId)) {
+                connection.setAutoCommit(false);
+                PreparedStatement statement = connection.prepareStatement("select * from EMPLOYEE where id = " + empId);
+                ResultSet set = statement.executeQuery();
 
-            Employees employee = new Employees();
+                Employees employee = new Employees();
 
-            while (set.next()) {
-                employee.setEmployeeId(set.getInt("id"));
-                employee.setFirstName(set.getString("fname"));
-                employee.setLastName(set.getString("lname"));
-                employee.setSalary(set.getDouble("salary"));
-                employee.setStatus(set.getString("status"));
+                while (set.next()) {
+                    employee.setEmployeeId(set.getInt("id"));
+                    employee.setFirstName(set.getString("fname"));
+                    employee.setLastName(set.getString("lname"));
+                    employee.setSalary(set.getDouble("salary"));
+                    employee.setStatus(set.getString("status"));
+                }
+                statement.close();
+                connection.commit();
+                return employee;
+            } else {
+                System.out.println("Employee not found");
+                return null;
             }
-            statement.close();
-            connection.commit();
-            return employee;
         } catch (SQLException e) {
             System.out.println("Exception Message " + e.getLocalizedMessage());
             return null;
